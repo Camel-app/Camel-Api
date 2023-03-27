@@ -1,0 +1,19 @@
+version: '3.8'
+
+services:
+  api-ts:
+    env_file:
+      - .env
+    expose:
+      - '3001'
+    ports:
+      - '3001:3001'
+    build:
+      target: production
+    networks:
+      - camel-net
+    command: node build/index.js
+
+networks:
+  camel-net:
+    external: true
