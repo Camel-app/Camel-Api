@@ -32,8 +32,23 @@ $ docker run --env-file .env -p 3001:3001 aodaira/camel-bundle:first
 Else, the server can be ran through a terminal command:
 
 ```
+$ npm run build
+
 $ node build/index.js
 ```
+
+To monitor the ongoing process, pm2 can be used. After building the image, run:
+
+```
+// in case pm2 is not installed, run:
+// $ npm install --g pm2 
+
+$ pm2 start build/server.js 
+
+$ pm2 monit
+
+```
+
 
 ## Routes
 
