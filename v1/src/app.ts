@@ -4,6 +4,9 @@ import participantsRoutes from "./routes/participants";
 import researchersRoutes from "./routes/researchers";
 import morgan from 'morgan';
 import helmet from "helmet";
+import swaggerJsdoc from "swagger-jsdoc";
+import swaggerUi from "swagger-ui-express";
+import {options} from "./services/swagger"
 
 import fs from "fs";
 import path from 'path';
@@ -14,6 +17,13 @@ let accessLogStream = fs.createWriteStream(path.join(__dirname, 'access.log'), {
 
 connectToDatabase();
 
+var RateLimit = require('express-rate-limit');
+var limiter = RateLimit({
+  windowMs: 1*60*1000, // 1 minute
+  max: 20
+});
+
+app.use(limiter);
 app.use(morgan('common', { stream: accessLogStream }));
 app.use(helmet());
 app.use(express.urlencoded({ extended: false }));
@@ -31,6 +41,13 @@ app.use((_req: Request, res: Response, next: NextFunction) => {
     //}
     next();
 });
+
+const swaggerAutogen = require('swagger-autogen')()
+const outputFile = './swagger_output.json'
+const endpointsFiles = ['../docs/*.ts']
+swaggerAutogen(outputFile, endpointsFiles).then(() => {
+    require('../docs/index.ts')
+})
 
 /** Routes */
 app.use("/participants", participantsRoutes);
