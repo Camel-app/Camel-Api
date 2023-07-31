@@ -5,7 +5,9 @@ import Participant from "../models/participant";
 import Researcher from "../models/researcher";
 
 export const collections: {
-    participants?: mongoDB.Collection<Participant>; experiments?: mongoDB.Collection<Experiment>, researchers?: mongoDB.Collection<Researcher>
+    participants?: mongoDB.Collection<Participant>,
+    experiments?: mongoDB.Collection<Experiment>,
+    researchers?: mongoDB.Collection<Researcher>
 } = {};
 
 export async function connectToDatabase() {
