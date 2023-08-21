@@ -4,6 +4,7 @@ import Participant from "../../models/participant";
 import { ObjectId } from 'bson';
 import { collections } from "../../services/connect";
 import Daughter from "../../models/daughter";
+const { v4: uuidv4 } = require('uuid');
 
 /**
  * Add one experiment by participant.
@@ -17,7 +18,12 @@ const submitExperiment = async (req: Request, res: Response) => {
     const cam: string = req.body?.cam as string ?? "";
     const token: string = req?.body?.jwt as string ?? "";
     const idMother: string = req.body?.decoded?.motherID as string ?? "";
-    const participantID: string = req.body?.decoded?.participantID as string ?? "";
+    var participantID: string = req.body?.decoded?.participantID as string ?? "";
+
+    // avoid error if no participant ID was provided
+    if(participantID == ""){
+        participantID = "noID_" + uuidv4();
+    }
 
     if (!cam || !idMother || !participantID || !token) {
         return res.status(404).json({ message: "Please submit a correct input." });

@@ -9,8 +9,10 @@ import submitExperiment from '../controllers/participant/submitExperiment';
 const isAuth = require("../middlewares/auth");
 
 router.get('/getOneExperiment', getOneExperiment);
-router.post('/addExperience', isAuth, submitExperiment);
+router.post('/submitExperiment', isAuth, submitExperiment);
 router.get('/getOneExperimentToken', getOneExperimentToken);
 
 
 export default router;
+
+
