@@ -31,7 +31,7 @@ const signup = async (req: Request, res: Response) => {
         email: email,
         password: hash,
         role: "researcher",
-        paid: false
+        paid: true // set_default
     };
 
     try {

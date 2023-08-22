@@ -34,7 +34,7 @@ const addExperiment = async (req: Request, res: Response) => {
             config: JSON.stringify(configcam),
             cam: JSON.stringify(cam),
             link: link,
-            status: "inactive",
+            status: "active", // set_default
             daughters: [],
         };
 
