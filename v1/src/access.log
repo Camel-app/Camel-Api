@@ -1929,3 +1929,5 @@
 ::ffff:127.0.0.1 - - [22/Aug/2023:14:11:13 +0000] "POST /researchers/getExperimentByAuthor HTTP/1.1" 200 5386
 ::ffff:127.0.0.1 - - [22/Aug/2023:14:11:36 +0000] "OPTIONS /researchers/getExperimentByAuthor HTTP/1.1" 200 4
 ::ffff:127.0.0.1 - - [22/Aug/2023:14:11:36 +0000] "POST /researchers/getExperimentByAuthor HTTP/1.1" 200 5386
+::ffff:127.0.0.1 - - [22/Aug/2023:14:12:41 +0000] "OPTIONS /researchers/getExperimentByAuthor HTTP/1.1" 200 4
+::ffff:127.0.0.1 - - [22/Aug/2023:14:12:41 +0000] "POST /researchers/getExperimentByAuthor HTTP/1.1" 200 5386
