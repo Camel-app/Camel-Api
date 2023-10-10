@@ -7,7 +7,7 @@
     "@types/helmet": "^4.0.0",
     "@types/jest": "^28.1.6",
     "@types/jsonwebtoken": "^8.5.8",
-    "@types/mongoose": "^4.4.12", 
+    "@types/mongoose": "^4.4.12",
     "@types/morgan": "^1.9.3",
     "axios": "^0.27.2",
     "bcrypt": "^5.0.1",
@@ -40,5 +40,6 @@
       "pre-commit": "npm run lint",
       "pre-push": "npm run lint"
     }
-  }
+  },
+  "version": "0.0.1"
 }
